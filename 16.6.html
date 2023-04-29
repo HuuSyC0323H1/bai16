@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label><input id="viet"></label>
+<button style="background-color: green" onclick="Dongy()">Button</button> -- <button style="background-color: red" onclick="Tuchoi()">Button</button>
+</body>
+</html>
+<script>
+    function Phone(brand, model) {
+        // Device.call(this, "điện thoại");
+        this.brand = brand;
+        this.model = model;
+        this.batery = 100;
+        this.power = false;
+        this.Message = function(receiver, message) {
+                if (receiver === myPhone){
+                    console.log("Gửi tin nhắn đến " + receiver.brand + " " + receiver.model + ": " + message)
+                    this.batery -= 1;
+                }else {
+                    console.log("Có tin nhắn tới " + receiver.brand + " " + receiver.model + ": " + message)
+                    this.batery -= 1;
+                }
+        }
+        this.makeCall = function(receiver) {
+            if (this.power){
+                console.log("Gọi đến " + receiver.brand + " " + receiver.model);
+                this.batery -= 1;
+            }else {
+                console.log("Điện thoại đang tắt");
+            }
+        }
+        this.showbatery = function (){
+            if (this.power){
+                console.log("pin con lai " + this.batery + " % ");
+            }else {
+                console.log("Điện thoại đang tắt");
+            }
+        }
+        this.turnOn = function (){
+            this.power = true;
+            console.log("Điện thoại đã bật");
+        }
+        this.turnOff = function (){
+            this.power = false;
+            console.log("Điện thoại đã tắt");
+        }
+    }
+    Phone.prototype.ring = function() {
+        console.log("Đang reo...");
+    }
+    Phone.prototype.rung = function (){
+        console.log("Có tin nhắn -- Có tin nhắn")
+    }
+    let myPhone = new Phone("Apple", "iPhone 14", "black");
+    let yourPhone = new Phone("Samsung", "Galaxy S22", "white");
+    let message = document.getElementById('viet').value;
+    myPhone.turnOn();
+    function Dongy(){
+        if (myPhone){
+            myPhone.ring();
+            myPhone.makeCall(yourPhone)
+        }else if (yourPhone){
+            alert("ban nham may roi")
+        }
+    }
+
+
+
+    function Tuchoi(){
+        if (myPhone){
+            myPhone.ring();
+            myPhone.makeCall(yourPhone);
+        }else {
+            myPhone.turnOff();
+        }
+
+    }
+
+</script>

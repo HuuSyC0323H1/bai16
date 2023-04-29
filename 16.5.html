@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class Temperature {
+        C;
+        F;
+        K;
+
+        constructor(C) {
+            this.C = C;
+        }
+
+        getC() {
+            return this.C;
+        }
+
+        setC() {
+            this.C = C;
+        }
+
+        getF() {
+            return (this.C * 1.8) + 32;
+        }
+
+        getK() {
+            return (this.C + 273.15)
+        }
+
+        setnhietdo = function (C) {
+            this.C = C;
+        }
+    }
+
+    let chuyenhietdo = new Temperature(28);
+    let C = chuyenhietdo.getC();
+    let F = chuyenhietdo.getF();
+    let K = chuyenhietdo.getK();
+    chuyenhietdo.setC();
+    chuyenhietdo.setnhietdo(50);
+    F = chuyenhietdo.getF();
+    K = chuyenhietdo.getK();
+    alert(F + "/" + K);
+</script>

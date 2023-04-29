@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+</html>
+<script>
+    // noinspection JSPotentiallyInvalidUsageOfClassThis
+    class Rectangle {
+        width;
+        height;
+
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        getwidth() {
+            return this.width;
+        }
+
+        getheight() {
+            return this.height;
+        }
+
+        setwidth() {
+            this.width = width;
+        }
+
+        setheigth() {
+            this.height = height;
+        }
+
+        getdientich() {
+            return this.width * this.height;
+        }
+
+        getchuvi() {
+            return 2 * (this.height + this.width);
+        }
+        setdodai = function (width,height){
+             this.width = width;
+             this.height = height;
+        }
+    }
+
+    let myRectangle = new Rectangle(30,40);
+    let width = myRectangle.getwidth();
+    let height = myRectangle.getheight();
+    myRectangle.setheigth(40);
+    myRectangle.setwidth(50);
+    myRectangle.setdodai(60,80);
+
+    dientich = myRectangle.getdientich();
+    chuvi = myRectangle.getchuvi()
+
+    alert(dientich + "/" + chuvi);
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.fillRect(20, 20, 150, 100);
+
+</script>
